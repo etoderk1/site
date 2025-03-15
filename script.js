@@ -1,50 +1,22 @@
 // Управление окнами
-document.querySelectorAll('.windows-close').forEach(button => {
+document.querySelectorAll('.minecraft-close').forEach(button => {
     button.addEventListener('click', () => {
-        button.closest('.windows-window').style.display = 'none';
+        button.closest('.minecraft-window').style.display = 'none';
     });
 });
 
-document.querySelectorAll('.windows-minimize').forEach(button => {
+document.querySelectorAll('.minecraft-minimize').forEach(button => {
     button.addEventListener('click', () => {
-        const windowContent = button.closest('.windows-window').querySelector('.windows-window-content');
+        const windowContent = button.closest('.minecraft-window').querySelector('.minecraft-window-content');
         windowContent.style.display = windowContent.style.display === 'none' ? 'block' : 'none';
     });
 });
 
-document.querySelectorAll('.windows-maximize').forEach(button => {
+document.querySelectorAll('.minecraft-maximize').forEach(button => {
     button.addEventListener('click', () => {
-        const window = button.closest('.windows-window');
+        const window = button.closest('.minecraft-window');
         window.style.width = window.style.width === '90%' ? '300px' : '90%';
     });
-});
-
-// Фоновая музыка
-const backgroundMusic = document.getElementById('background-music');
-const volumeSlider = document.getElementById('volume-slider');
-const volumeIcon = document.getElementById('volume-icon');
-
-backgroundMusic.volume = volumeSlider.value / 100; // Устанавливаем начальную громкость
-
-volumeSlider.addEventListener('input', () => {
-    backgroundMusic.volume = volumeSlider.value / 100;
-
-    // Меняем иконку в зависимости от громкости
-    if (volumeSlider.value == 0) {
-        volumeIcon.className = 'fas fa-volume-mute';
-    } else if (volumeSlider.value < 50) {
-        volumeIcon.className = 'fas fa-volume-down';
-    } else {
-        volumeIcon.className = 'fas fa-volume-up';
-    }
-});
-
-// Градиентный след за курсором
-const cursorGradient = document.querySelector('.cursor-gradient');
-
-document.addEventListener('mousemove', (e) => {
-    cursorGradient.style.left = `${e.clientX}px`;
-    cursorGradient.style.top = `${e.clientY}px`;
 });
 
 // Экран входа
@@ -53,9 +25,6 @@ const entryButton = document.getElementById('entry-button');
 
 entryButton.addEventListener('click', () => {
     entryScreen.classList.add('hidden');
-    backgroundMusic.play().catch(error => {
-        console.error('Ошибка воспроизведения аудио:', error);
-    });
 });
 
 // Копирование IP
@@ -66,5 +35,29 @@ copyIpButton.addEventListener('click', () => {
         alert('IP скопирован: ' + ip);
     }).catch(() => {
         alert('Не удалось скопировать IP');
+    });
+});
+
+// Перемещение окон (если нужно)
+document.querySelectorAll('.minecraft-window').forEach(window => {
+    const header = window.querySelector('.minecraft-window-header');
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    header.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        offsetX = e.clientX - window.getBoundingClientRect().left;
+        offsetY = e.clientY - window.getBoundingClientRect().top;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            window.style.left = `${e.clientX - offsetX}px`;
+            window.style.top = `${e.clientY - offsetY}px`;
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
     });
 });
