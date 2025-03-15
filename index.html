@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eto1111 Minecraft Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Экран входа -->
+    <div id="entry-screen">
+        <button id="entry-button">Click to Enter</button>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="container">
+        <!-- Окно "Обо мне" -->
+        <div class="minecraft-window" id="about-window">
+            <div class="minecraft-window-header">
+                <div class="minecraft-window-title">Обо мне</div>
+                <div class="minecraft-window-controls">
+                    <span class="minecraft-minimize"></span>
+                    <span class="minecraft-maximize"></span>
+                    <span class="minecraft-close"></span>
+                </div>
+            </div>
+            <div class="minecraft-window-content">
+                <h2>eto1111</h2>
+                <p>Возраст: 16</p>
+                <p>Страна: Россия</p>
+            </div>
+        </div>
+
+        <!-- Окно "Контакты" -->
+        <div class="minecraft-window" id="contacts-window">
+            <div class="minecraft-window-header">
+                <div class="minecraft-window-title">Контакты</div>
+                <div class="minecraft-window-controls">
+                    <span class="minecraft-minimize"></span>
+                    <span class="minecraft-maximize"></span>
+                    <span class="minecraft-close"></span>
+                </div>
+            </div>
+            <div class="minecraft-window-content">
+                <p>Discord: <span class="contact">eto1111</span></p>
+                <p>Telegram: <span class="contact">@devgptai</span></p>
+                <p>Minecraft: <span class="contact">derk_yt</span></p>
+            </div>
+        </div>
+
+        <!-- Окно "Мои проекты" -->
+        <div class="minecraft-window" id="projects-window">
+            <div class="minecraft-window-header">
+                <div class="minecraft-window-title">Мои проекты</div>
+                <div class="minecraft-window-controls">
+                    <span class="minecraft-minimize"></span>
+                    <span class="minecraft-maximize"></span>
+                    <span class="minecraft-close"></span>
+                </div>
+            </div>
+            <div class="minecraft-window-content">
+                <h2>Spinbox</h2>
+                <div class="minecraft-buttons">
+                    <button id="copy-ip-button" class="minecraft-button">
+                        <i class="fas fa-copy"></i> Скопировать IP
+                    </button>
+                    <a href="https://discord.gg/ukZ8HghWmE" target="_blank" class="minecraft-button">
+                        <i class="fab fa-discord"></i> Discord
+                    </a>
+                    <a href="https://shop.spinbox.fun" target="_blank" class="minecraft-button">
+                        <i class="fas fa-shopping-cart"></i> Магазин
+                    </a>
+                    <a href="https://t.me/spinboxpvp" target="_blank" class="minecraft-button">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer>
+        Copyright © 2025 eto1111. All rights reserved.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
